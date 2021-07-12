@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/app.css';
 import App from './App';
+import Actions from './actions/actions';
+import './styles/app.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <App>
+    <Actions isChecked={true} />
+  </App>,
+  document.getElementById('root')
+);

@@ -1,4 +1,5 @@
 import React from 'react';
+import ToggleButton from './toggleButton';
 
 class Actions extends React.Component {
   constructor(props) {
@@ -9,10 +10,12 @@ class Actions extends React.Component {
   render() {
     return (
       <div className='container-right' id='display'>
-        <div className='switch-button flex justify-center pl-0 pr-5 mt-20'>
+        <div className='flex justify-center pl-0 pr-5 mt-20'>
           <p className=''>POWER</p>
         </div>
-        <div className='switch' style={{ float: 'right' }}></div>
+        <div className='switch flex justify-center pl-0 pr-5 '>
+          <ToggleButton />
+        </div>
         <hr />
       </div>
     );

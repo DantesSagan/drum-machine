@@ -20,9 +20,9 @@ class ToggleButton extends React.Component {
       return (
         <div
           className='switch-button flex justify-center pl-0 pr-5'
-          style={{ backgroundColor: 'white', width: '50', height: '22px' }}
+          style={{ backgroundColor: '#fffdd0', width: '50', height: '22px' }}
         >
-          <div
+          <div // turn on
             className='button-switch'
             style={{ float: 'right' }}
             onClick={this.toggleDisplay}
@@ -31,9 +31,9 @@ class ToggleButton extends React.Component {
       );
     } else {
       return (
-        <div
+        <div // turn off
           className='switch-button flex justify-center pl-5 pr-0'
-          style={{ backgroundColor: 'white', width: '50px', height: '22px' }}
+          style={{ backgroundColor: '#fffdd0', width: '50px', height: '22px' }}
         >
           <div
             className='button-switch'

@@ -1,5 +1,5 @@
 .button-switch {
-  padding: 2px;
+  padding: 1px;
   width: 24px;
   height: 20px;
   background: #991b1b;
@@ -12,34 +12,35 @@
   transition: 1s;
 }
 .button-active {
-  background: linear-gradient(
-    to right,
-    rgba(255, 31, 31, 1) 0%,
-    rgba(255, 95, 95, 1) 51%,
-    rgba(255, 194, 194, 1) 100%
-  );
   cursor: pointer;
   padding: 10px;
   text-align: center;
   transition: 0.6s;
-  background-size: 200% auto;
   color: white;
-  box-shadow: 0 0 20px #eee;
+  boxshadow: '3px 3px 5px black';
   border-radius: 10px;
   font-weight: bold;
 }
 .button-active:active {
+  boxshadow: '3px 3px 5px black';
   transform: scale(0.85);
   transition: 0.15s;
 }
-.button-active:hover {
+/* .button-active:hover {
   background-image: linear-gradient(
     to right,
     rgba(255, 31, 31, 1) 0%,
     rgba(255, 95, 95, 1) 51%,
-    rgba(255,253,253,1) 100%
+    rgba(255, 253, 253, 1) 100%
   );
   background-position: right center;
   color: #fff;
   text-decoration: none;
+} */
+p {
+  display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }

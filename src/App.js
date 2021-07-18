@@ -73,7 +73,7 @@ const collectionOne = [
 export default function App() {
   const [volume, setVolume] = React.useState(0.3);
 
-  const [recording, setRecording] = React.useState('');
+  const [recording, setRecording] = React.useState(' ');
 
   const [speed, setSpeed] = React.useState(0.5);
 
@@ -125,7 +125,7 @@ export default function App() {
             width: '250px',
             height: '40px',
             margin: '15px auto',
-            padding: '15px',  
+            padding: '15px',
           }}
         >
           <p className='text-center text-lg underline font-bold pl-0 pr-5 '>
@@ -136,7 +136,7 @@ export default function App() {
               <button onClick={playRecording} className='bg-green-400'>
                 Play
               </button>
-              <button onClick={() => setRecording('')} className='bg-red-400'>
+              <button onClick={() => setRecording(' ')} className='bg-red-400'>
                 Clear
               </button>
               <input
@@ -158,7 +158,7 @@ export default function App() {
             type='range'
             step='0.01'
             value={volume}
-            onChange={(e) => setVolume({ volume: e.target.value })}
+            onChange={(e) => setVolume(e.target.value)}
             max='1'
             min='0'
             className='text-center w-50 '

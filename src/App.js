@@ -71,11 +71,15 @@ const collectionOne = [
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 export default function App() {
+  const [active] = React.useState(false);
+
   const [volume, setVolume] = React.useState(0.3);
 
   const [recording, setRecording] = React.useState(' ');
 
   const [speed, setSpeed] = React.useState(0.5);
+
+  const [power, setPower] = React.useState(true);
 
   const playRecording = () => {
     let index = 0;
@@ -93,33 +97,114 @@ export default function App() {
     );
   };
 
+  const swtichClick = () => {
+    if (power) {
+      return (
+        <div>
+          {/* POWER */}
+          <div className='md:max-w-2xl'>
+            <div className='flex justify-center pl-0 pr-5 mt-5'>
+              <p className='font-bold text-2xl'>Power</p>
+            </div>
+            <div
+              className='switch-button flex pl-0 pr-80'
+              style={{
+                backgroundColor: '#fffdd0',
+                border: '1px solid black',
+                borderRadius: '30px',
+                width: '50',
+                height: '42px',
+                margin: '15px auto',
+              }}
+            >
+              <div // turn OFF
+                className={`button-switch bg-red-600 ${
+                  active && 'bg-red-800 '
+                }`}
+                style={{ float: 'right' }}
+                onClick={() => setPower(!power)}
+              >
+                <p className='text-center text-white font-bold '>OFF</p>
+              </div>
+            </div>
+          </div>
+
+          {/* SOUND */}
+          <div className='grid grid-flow-col grid-cols-3 grid-rows-3 gap-4'>
+            {collectionOne.map((sound) => (
+              <div className='text-center'>
+                <div
+                  id={sound.id}
+                  type='button'
+                  className={` bg-red-300 w-full h-full text-sm font-bold  p-10  button-active drum-pad`}
+                >
+                  <audio className='clip'></audio>
+                  {sound.keyid}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          {/* POWER */}
+          <div className='md:max-w-2xl'>
+            <div className='flex justify-center pl-0 pr-5 mt-5'>
+              <p className='font-bold text-2xl'>Power</p>
+            </div>
+            <div
+              className='switch-button flex justify-center pl-80 pr-0'
+              style={{
+                backgroundColor: '#fffdd0',
+                border: '1px solid black',
+                borderRadius: '30px',
+                width: '50',
+                height: '42px',
+                margin: '15px auto',
+              }}
+            >
+              <div // turn ON
+                className='button-switch bg-green-700'
+                style={{ float: 'right' }}
+                onClick={() => setPower(!power)}
+              >
+                <p className='text-center text-white font-bold '>ON</p>
+              </div>
+            </div>
+          </div>
+          <hr />
+
+          {/* SOUND */}
+          <div className='grid grid-flow-col grid-cols-3 grid-rows-3 gap-4'>
+            {collectionOne.map((soundObj) => (
+              <Pad
+                power={power}
+                key={soundObj.id}
+                soundObj={soundObj}
+                volume={volume}
+                setRecording={setRecording}
+              />
+            ))}
+          </div>
+        </div>
+      );
+    }
+  };
+
   return (
+    // MAIN DRUM-MACHINE
     <div
       id='drum-machine'
-      className='max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl my-60 d-flex p-4 grid grid-flow-col grid-cols-2 gap-4  '
+      className='max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden d-flex p-4 grid grid-flow-col grid-cols-1 gap-4 mt-20 '
       style={{ background: '#FECACA' }}
     >
-      <div className='grid grid-flow-col grid-cols-3 grid-rows-3 gap-4'>
-        {collectionOne.map((soundObj) => (
-          <Pad
-            key={soundObj.id}
-            soundObj={soundObj}
-            volume={volume}
-            setRecording={setRecording}
-          />
-        ))}
-      </div>
-      <div className='container-right'>
-        <div className='flex justify-center pl-0 pr-5 mt-10'>
-          <p className='font-bold text-red-medium'>Power</p>
-        </div>
-        <div className='flex justify-center pl-0 pr-5'>
-          <ToggleButton />
-        </div>
-        <hr />
+      {/* RECORDING */}
+      <div className='md:max-w-2xl'>
         <div
           id='display'
-          className='switch-button justify-center pl-0 pr-5 mt-5'
+          className='switch-button justify-center pl-0 pr-5'
           style={{
             backgroundColor: '#fffdd0',
             width: '250px',
@@ -152,7 +237,12 @@ export default function App() {
           )}
         </div>
         <hr />
-        <h4 className='flex justify-center pl-0 pr-5 font-bold'>Volume</h4>
+        <p className='text-center font-bold text-xs'>In progress #1</p>
+
+        {/* VOLUME */}
+        <h4 className='flex justify-center pl-0 pr-5 font-bold text-2xl'>
+          Volume
+        </h4>
         <div className='flex justify-center pl-0 pr-5 mt-2'>
           <input
             type='range'
@@ -161,19 +251,36 @@ export default function App() {
             onChange={(e) => setVolume(e.target.value)}
             max='1'
             min='0'
-            className='text-center w-50 '
+            className='text-center w-50 bg-black'
           />
+          <p className='font-bold'> {volume}</p>
         </div>
         <div className='text-center'></div>
         <div className='flex justify-center pl-0 pr-5 mt-5'>
-          <p className='font-bold text-red-medium'>Switch</p>
+          <p className='text-center text-black text-2xl font-bold'>Switch</p>
         </div>
-        <div className='flex justify-center pl-0 pr-5 '>
-          <ToggleButton />
+        <p className='text-center font-bold text-xs'>In progress #2</p>
+        <div
+          className='switch-button flex justify-center pl-80 pr-0'
+          style={{
+            backgroundColor: '#fffdd0',
+            border: '1px solid black',
+            borderRadius: '30px',
+            width: '50',
+            height: '42px',
+            margin: '15px auto',
+          }}
+        >
+          <div // turn ON
+            className='button-switch bg-green-700'
+            style={{ float: 'right' }}
+          >
+            <p className='text-center text-white font-bold '>ON</p>
+          </div>
         </div>
         <hr />
+        {swtichClick(power)}
       </div>
     </div>
   );
 }
-console.log(Pad);

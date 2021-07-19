@@ -1,11 +1,38 @@
+input {
+  background: red;
+  color: white;
+}
+input:hover,
+input:focus,
+input:active {
+  border: 1px solid black;
+  -webkit-box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  transform: scale(1.05);
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  -moz-box-shadow: 2px 2px 4px 0px #006773;
+  -webkit-box-shadow: 2px 2px 4px 0px #006773;
+  box-shadow: 2px 2px 4px 0px #006773;
+  -moz-border-radius: 7px 7px 7px 7px;
+  -webkit-border-radius: 7px 7px 7px 7px;
+  border-radius: 7px 7px 7px 7px;
+}
+
 .button-switch {
   padding: 1px;
-  width: 24px;
-  height: 20px;
+  width: 350px;
+  height: 40px;
   background: #991b1b;
   box-sizing: border-box;
   cursor: pointer;
   border: 1.5px solid white;
+  border-radius: 30px;
 }
 .switch-button {
   border: 1px solid black;
@@ -37,6 +64,3 @@
   color: #fff;
   text-decoration: none;
 } */
-p {
-  display: inline-block;
-}

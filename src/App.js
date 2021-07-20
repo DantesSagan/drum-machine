@@ -132,7 +132,7 @@ export default function App() {
 
   const [volume, setVolume] = React.useState(0.3);
 
-  const [recording, setRecording] = React.useState(' ');
+  const [recording, setRecording] = React.useState('');
 
   const [speed, setSpeed] = React.useState(0.5);
 
@@ -280,7 +280,6 @@ export default function App() {
               </div>
             </div>
           </div>
-          <hr />
 
           {/* SOUND */}
           <div className='grid grid-flow-col grid-cols-3 grid-rows-3 gap-4'>
@@ -349,7 +348,6 @@ export default function App() {
               </div>
             </div>
           </div>
-          <hr />
 
           {/* SOUND */}
           <div className='grid grid-flow-col grid-cols-3 grid-rows-3 gap-4'>
@@ -372,19 +370,19 @@ export default function App() {
     // MAIN DRUM-MACHINE
     <div
       id='drum-machine'
-      className='max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden d-flex p-4 grid grid-flow-col grid-cols-1 gap-4 mt-16 '
+      className='max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden d-flex p-4 grid grid-flow-col grid-cols-1 gap-4 mt-4 '
       style={{ background: '#FECACA' }}
     >
       {/* RECORDING */}
       <div className='md:max-w-2xl'>
         {' '}
-        <h1 className='text-4xl font-bold text-center mt-5 mb-5'>
+        <h1 className='text-4xl font-bold text-center mt-2 mb-2'>
           Drum Machine
         </h1>
         <hr />
         <div
           id='display'
-          className='switch-button justify-center pl-0 pr-5'
+          className='switch-button justify-center pl-0 pr-5 overflow-hidden'
           style={{
             backgroundColor: '#fffdd0',
             width: '250px',
@@ -396,14 +394,23 @@ export default function App() {
           <p className='text-center text-lg underline font-bold pl-0 pr-5 '>
             {recording}
           </p>
+        </div>
+        <div className='text-center text-lg font-bold pl-0 pr-5 mt-2 mb-2'>
           {recording && (
             <>
-              <button onClick={playRecording} className='bg-green-400'>
-                Play
+              <button
+                onClick={playRecording}
+                className='button-switchRC bg-green-400 hover:bg-green-500 active:bg-green-600'
+              >
+                <p className='text-white font-bold'>Play</p>
               </button>
-              <button onClick={() => setRecording(' ')} className='bg-red-400'>
-                Clear
+              <button
+                onClick={() => setRecording('')}
+                className='button-switchRC bg-red-400 hover:bg-red-500 active:bg-red-600 transform:0.95'
+              >
+                <p className='text-white font-bold'>Clear</p>
               </button>
+              <p>Speed</p>
               <input
                 type='range'
                 step='0.01'
@@ -416,7 +423,6 @@ export default function App() {
             </>
           )}
         </div>
-        <hr />
         <p className='text-center font-bold text-xs'>In progress #1</p>
         {/* VOLUME */}
         <h4 className='flex justify-center pl-0 pr-5 font-bold text-2xl'>
@@ -434,14 +440,8 @@ export default function App() {
           />
           <p className='font-bold'> {volume}</p>
         </div>
-        <hr />
         {swtichClick()}
       </div>
     </div>
   );
 }
-function confirmEnding(str, target) {
-  return str.substr(-target.length) === target;
-}
-
-console.log(confirmEnding('Bastian', 'n'));

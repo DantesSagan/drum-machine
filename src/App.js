@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import ToggleButton from './components/toggleButton';
 import Pad from '../src/actions/pad';
@@ -155,6 +156,7 @@ export default function App() {
       600 * speed * recordArray.length - 1
     );
   };
+  
 
   const swtichClick = () => {
     if (power) {

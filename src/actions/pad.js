@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 
 export default function Pad({ soundObj, volume, setRecording }) {
@@ -8,7 +7,7 @@ export default function Pad({ soundObj, volume, setRecording }) {
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
     };
-  }, []);
+  });
   const handleKeyPress = (e) => {
     if (e.keyCode === soundObj.keyCode) {
       soundPlay();

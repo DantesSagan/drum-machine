@@ -131,7 +131,7 @@ const collectionTwo = [
 export default function App() {
   const [active] = React.useState(false);
 
-  const [volume, setVolume] = React.useState(0.3);
+  const [volume, setVolume] = React.useState(0.5);
 
   const [recording, setRecording] = React.useState('');
 
@@ -144,19 +144,19 @@ export default function App() {
   const playRecording = () => {
     let index = 0;
     let recordArray = recording.split(' ');
+
     const interval = setInterval(() => {
-      const audioTag = document.getElementById(recordArray[index]);
-      audioTag.volume = volume;
-      audioTag.currentTime = 0;
-      audioTag.play();
-      index++;
+        const audioTag = document.getElementById(recordArray[index]);
+        audioTag.volume = volume;
+        audioTag.currentTime = 0;
+        audioTag.play();
+        index++;
     }, speed * 600);
     setTimeout(
       () => clearInterval(interval),
       600 * speed * recordArray.length - 1
     );
   };
-  
 
   const swtichClick = () => {
     if (power) {
@@ -217,7 +217,7 @@ export default function App() {
             {collectionOne.map((s) => (
               <div className='text-center'>
                 <div
-                  id={s.id}
+                  key={s.id}
                   type='button'
                   className={` bg-red-300 w-full h-full text-sm font-bold  p-10  button-active drum-pad`}
                 >

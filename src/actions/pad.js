@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function Pad({ soundObj, volume, setRecording }) {
   const [active, setActive] = React.useState(false);
-  React.useEffect(() => {
+  useEffect(() => {
     document.addEventListener('keydown', handleKeyPress);
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
@@ -20,7 +20,7 @@ export default function Pad({ soundObj, volume, setRecording }) {
     audioTag.volume = volume;
     audioTag.currentTime = 0;
     audioTag.play();
-    setRecording((prev) => prev + soundObj.id + " ");
+    setRecording((prev) => prev + soundObj.keyid + ' ');
   };
 
   return (

@@ -425,7 +425,6 @@ export default function App() {
             </>
           )}
         </div>
-        <p className='text-center font-bold text-xs'>In progress #1</p>
         {/* VOLUME */}
         <h4 className='flex justify-center pl-0 pr-5 font-bold text-2xl'>
           Volume

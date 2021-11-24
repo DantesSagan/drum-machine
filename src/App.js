@@ -72,13 +72,13 @@ export default function App() {
             <>
               <button
                 onClick={playRecording}
-                className='button-switchRC bg-green-400 hover:bg-green-500 active:bg-green-600'
+                className='button-switchRC bg-green-300'
               >
                 <p className='text-white font-bold'>Play</p>
               </button>
               <button
                 onClick={() => setRecording('')}
-                className='button-switchRC bg-red-400 hover:bg-red-500 active:bg-red-600 transform:0.95'
+                className='button-switchRC bg-red-300'
               >
                 <p className='text-white font-bold'>Clear</p>
               </button>
